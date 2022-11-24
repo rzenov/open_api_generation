@@ -1,0 +1,9 @@
+{
+  "modelPackage": "org.example.model",
+  "apiPackage": "org.example.api",
+  "invokerPackage": "org.example",
+  "library": "spring-boot",
+  "dateLibrary": "java11",
+  "hideGenerationTimestamp": true,
+  "interfaceOnly": true
+}

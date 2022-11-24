@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: API Profile
+  version: "1.0"
+paths:
+  /api/v1/salespot/profile:
+    get:
+      summary: Find all profiles
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad request.
+        404:
+          description: Profile not found.
+    post:
+      summary: Add profile
+      requestBody:
+        $ref: "#/components/schemas/Pet"
+      responses:
+        200:
+          description: OK
+        405:
+          description: Invalid input.
+    put:
+      summary: Update an existing profile
+      parameters:
+        - in: body
+          name: body
+          description: Profile object that needs to be updated
+          required: true
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad request.
+        404:
+          description: Profile doesn't exist.
+        5XX:
+          description: Unexpected error.
+    delete:
+      summary: Deletes a profile
+      parameters:
+        - in: query
+          name: path
+          description: Profile id to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Profile has been deleted
+        400:
+          description: Bad request.
+  /api/v1/salespot/profile/{profileId}:
+    get:
+      summary: Find profile by ID
+      parameters:
+        - name: profileId
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: OK
+        400:
+          description: Bad request.
+        404:
+          description: Profile not found.
